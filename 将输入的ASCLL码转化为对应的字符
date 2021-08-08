@@ -1,0 +1,13 @@
+# growing
+// 2021/08/08
+// C
+// 将输入的ASCLL码转化为对应的字符
+#include<stdio.h>
+int main(void)
+{
+	int num;
+	printf(“输入一个ASCLL码：”);
+	scanf(“%d”,&num);
+	printf(“\n%c”,num);
+	return 0;
+}
