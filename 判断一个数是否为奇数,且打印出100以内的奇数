@@ -1,0 +1,15 @@
+#include <stdio.h>
+//判断一个数是否为奇数,且打印出100以内的奇数
+int main(void) 
+{
+	int i=0;
+	while(i<100)
+	{
+		if(i%2==1)
+			printf(“%d是奇数\n”,i);
+		else
+			printf(“”);
+	i=i+1;
+	}
+    return 0;
+}
