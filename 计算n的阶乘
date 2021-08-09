@@ -1,0 +1,16 @@
+# growing
+//计算n的阶乘
+# include<stdio.h>
+int main(void)
+{
+	int n = 0;
+	int anwser = 1;
+	int i = 0;
+	scanf(“%d”,&n);
+	for (i=1;i<=n;i++)
+	{
+		anwser=anwser*i;
+	}
+	printf(“anwser is %d”,anwser);
+return 0;
+}
