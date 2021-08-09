@@ -1,0 +1,30 @@
+#include<stdio.h>
+//二分法查找数组中有无某一目标
+int main(void)
+{
+	int arr[]={1,2,3,4,5,6,7,8,9,10};     //任意不重复的数组（防止语义问题）
+	int sz =sizeof(arr)/sizeof(arr[0]);   //数组个数
+	int left=0;               //左下标
+	int right = sz-1;         //右下标
+	int k =7;                 //scanf(%d,k);
+	while(left<=right)        //防止陷入死循环
+	{
+		int mid = (left+right)/2;
+		if(arr[mid]>k)
+		{
+			right = mid - 1;
+		}
+		else if (arr[mid]<k)
+		{
+			left = mid +1;
+		}
+		else
+		{	
+			printf(“Find it ,the number is %d!”,mid);
+			break;
+		}
+	}
+	if(left>right)            //不加入条件语句会导致永远打印下一行的语句
+		printf(“Failed!”);
+return 0;
+}
