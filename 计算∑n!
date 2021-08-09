@@ -1,0 +1,24 @@
+# growing
+//计算∑n!
+# include<stdio.h>
+int main(void)
+{
+	int n = 0;
+	int anwser1 = 0;
+	int anwser2 = 1;
+	int i = 0;
+	int j = 0;
+	scanf(“%d”,&n);
+	for (i=1;i<=n;i++)
+	{
+		j=1;
+		anwser2 = 1;
+		for (j=1;j<=i;j++)
+		{
+			anwser2=anwser2*j;
+		}
+		anwser1=anwser1+anwser2;
+	}
+	printf(“anwser is %d”,anwser1);
+return 0;
+}
