@@ -1,0 +1,17 @@
+#include<stdio.h>
+int main(void)
+{
+	int i=0;
+	for(i=100;i<=200;i++)   //可以将100和200存入unsigned int statr 和unsigned int end变量 通过scanf实现任意区间判断是否为素数
+	{
+		int j=0;
+		for(j=2;j<i;j++)
+		{
+			if(i%j==0)
+			break;
+		}
+		if(j==i)
+			printf(“%d是素数”,i);
+	}	
+return 0;
+}
