@@ -1,0 +1,56 @@
+// 2021/08/12
+// C
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+void menu()                         //生成初始提示面板
+{
+	printf("*********************");
+	printf("***1.play   0.exit***");
+	printf("*********************");
+}
+
+void game()
+{
+	int ret=0;
+	int num=0;
+	ret =rand()%100+1;                 //给ret赋值1～100
+    while(1)
+    {
+	    printf("请猜数字：");
+	    scanf("%d",&num);
+	    if(num>ret)
+	        printf("大了");
+	    else if(num<ret)
+	        printf("小了");
+	    else if(num==ret)
+	        {
+	            printf("猜对了！");
+	            break;
+	        }
+    }
+}
+
+int main()
+{
+	int input=0;
+	srand((unsigned int)time(NULL));  //time是一个种子，将这个种子提供给srand
+	do
+	{
+	menu();
+	printf("请选择（输入1或者0）：");
+	scanf("%d",&input);
+	switch(input)
+		{
+		case 1:
+			game();
+      break;
+		case 0:
+			break;
+		default:
+			break;
+		}
+	}
+	while (input);              //
+return 0;
+}
