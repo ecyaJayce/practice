@@ -1,0 +1,28 @@
+#include<stdio.h>
+
+int frog_jump(int n)
+{
+	n=n-1;
+	int a,b,c;
+	a=1;
+	b=2;
+	c=1;
+	while(n>1)
+	{
+		c=a+b;
+		a=b;
+		b=c;
+		n--;
+	}
+	return c;
+}
+
+int main()
+{
+	int ret;
+	int n=0;
+	scanf(“%d”,&n);
+	ret=frog_jump(n);
+	printf(“%d”,ret);
+	return 0;
+}
