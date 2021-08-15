@@ -2,7 +2,6 @@
 
 int frog_jump(int n)
 {
-	int t;
 	if(n==1)
 		return 1;
 	else if(n==2)
