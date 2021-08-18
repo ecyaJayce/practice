@@ -134,9 +134,9 @@ int IsFull()
 		return 0;
 }
 
-char IsWin()
+char IsWin(char board[Row][Col],int row,int col)
 {
-	for(i=0;i<Row;i++)
+	for(i=0;i<row;i++)
 	{
 		if(board[i][0]==board[i][1]&&board[i][2]==board[i][1])
 		{
@@ -148,11 +148,11 @@ char IsWin()
 		}
 	}
 	if((board[0][0]==board[1][1]&&board[1][1]==board[2][2])||(board[2][0]==board[1][1]&&board[1][1]==board[0][2]))
-		retuen board[1][1];
+		return board[1][1];
 	if(1==IsFull)
-		return P;
+		return 'P';
 	else
-		return C;
+		return 'C';
 }
 
 void game()
@@ -163,14 +163,16 @@ void game()
 	Inilboard(board,Row,Col);
 	Displayboard(board,Row,Col);
 	while(1)
+	{
 	PlayerMove(board,Row,Col);
-	ret=IsWIn();
+	ret=IsWin(board,row,col);
 	if(ret!='C')
 		break;
 	ComputerMove(board,Row,Col);
-	ret=IsWin();
+	ret=IsWin(board,Row,Col);
 	if(ret!='C')
 		break;
+	}
 }
 
 void test()
