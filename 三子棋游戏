@@ -65,7 +65,7 @@ void PlayerMove(char board[Row][Col],int row,int col)
 {
 	printf("请输入坐标：");
 PMove:
-	scanf("%d%d",x,y);
+	scanf("%d%d",&x,&y);
 	if(x>=1&&x<=Row)
 	{
 		if(y>=1&&y<=Col)
