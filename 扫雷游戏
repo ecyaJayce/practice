@@ -1,0 +1,106 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+#define ROW 9
+#define COL 9
+#define COLS COL+2
+#define ROWS ROW+2
+#define EASY_COUNT 10
+int i=0;
+int j=0;
+int x=0;
+int y=0;
+void InitBoard(char board[ROWS][COLS],int rows,int cols,char stuff)
+{
+	for(i=0;i<rows;i++)
+	{
+		for(j=0;j<cols;j++)
+		{
+			board[i][j]=stuff;//stuff是为了使展示的棋盘不同，现实不同，故多增加一个参数
+		}
+	}
+}
+
+void DisplayBoard(char board[ROWS][COLS],int row,int col)
+{
+	for(i=0;i<row+1;i++)
+	{
+		printf("%d ",i);
+	}
+	printf("\n");
+	for(i=0;i<row;i++)
+	{
+		printf("%d ",i+1);
+		for(j=0;j<col;j++)
+		{
+			printf("%c ",board[i+1][j+1]);//i，j均需要加1，因为是11*11内部的9*9需要展示
+		}
+		printf("\n");
+	}
+}
+
+void SetMine(char board[ROWS][COLS],int row,int col)
+{
+	int count = EASY_COUNT;//可以额外设置一个自定义难度的函数
+	while(count)
+	{
+		x=rand()%9+1;//x，y加一是为了使雷设置在9*9内部
+		y=rand()%9+1;
+		if(board[x][y]=='0')
+		{
+			board[x][y]='1';
+			count--;
+		}
+		else
+			continue;
+	}
+}
+
+void game()
+{
+	char mine[ROWS][COLS]={0};
+	char show[ROWS][COLS]={0};
+	InitBoard(mine,ROWS,COLS,'0');//初始化棋盘
+	InitBoard(show,ROWS,COLS,'*');
+	DisplayBoard(mine,ROW,COL);//展示棋盘
+	DisplayBoard(show,ROW,COL);
+	SetMine(mine,ROW,COL);//设置地雷
+	//DisplayBoard(mine,ROW,COL);//展示地雷效果
+}
+void menu()
+{
+	printf("********************");
+	printf("*******1.Play*******");
+	printf("*******0.Exit*******");
+	printf("********************");
+}
+void test()
+{
+	int input=1;
+	do
+	{
+		menu();
+		printf("请选择:");
+		scanf("%d",&input);
+		switch(input)
+		{
+			case 1:
+				printf("Start!\n");
+				game();
+				break;
+			case 0:
+				printf("Game Over!\n");
+				break;
+			default:
+				printf("输入错误，请重新输入\n");
+				break;
+		}
+		break;
+	}while(input);
+}
+int main()
+{
+	srand((unsigned int)time(NULL));
+	test();
+	return 0;
+}
