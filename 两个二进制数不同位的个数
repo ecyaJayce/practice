@@ -1,6 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
-int count_bit_one(int t)
+int count_bit_dif(int t)
 {
 	int count = 0;
 	while(t)
@@ -19,7 +19,7 @@ int main()
 	int b = 0;
 	scanf("%d%d",&a,&b);
 	int t = a ^ b;
-	int count = count_bit_one(t);
+	int count = count_bit_dif(t);
 	printf("%d", count);
 	return 0;
 }
