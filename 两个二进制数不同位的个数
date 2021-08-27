@@ -1,0 +1,25 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+int count_bit_one(int t)
+{
+	int count = 0;
+	while(t)
+	{
+		if (t % 2 == 1)
+		{
+			count++;
+		}
+		t = t >> 1;
+	}
+	return count;
+}
+int main()
+{
+	int a = 0;
+	int b = 0;
+	scanf("%d%d",&a,&b);
+	int t = a ^ b;
+	int count = count_bit_one(t);
+	printf("%d", count);
+	return 0;
+}
