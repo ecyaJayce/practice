@@ -1,9 +1,9 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
-int count_bit_dif(int t)
+int count_bit_dif(unsigned int t)	//将int转化为unsigned保证负数时也可以执行
 {
 	int count = 0;
-	while(t)
+	while(t)			//也可以&1来判断最后一位是否相同 最好用for循环32次
 	{
 		if (t % 2 == 1)
 		{
