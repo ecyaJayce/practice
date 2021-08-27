@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS 1
+/*#define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
 int count_bit_dif(unsigned int t)	//将int转化为unsigned保证负数时也可以执行
 {
@@ -13,11 +13,43 @@ int count_bit_dif(unsigned int t)	//将int转化为unsigned保证负数时也可
 	}
 	return count;
 }
-int main()
+int main()					//只建立一个函数不够优秀
 {
 	int a = 0;
 	int b = 0;
 	scanf("%d%d",&a,&b);
+	int t = a ^ b;
+	int count = count_bit_dif(t);
+	printf("%d", count);
+	return 0;
+}
+*/
+//只建立一个函数不够优秀↑
+
+
+
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+int count_bit_one(int a)
+{
+	int count = 0;
+	while (a)
+	{
+		a=a& (a - 1);
+		count++;
+	}
+	return count;
+}
+int count_bit_dif(int t)
+{
+	int count = count_bit_one(t);
+	return count;
+}
+int main()
+{
+	int a = 0;
+	int b = 0;
+	scanf("%d%d", &a, &b);
 	int t = a ^ b;
 	int count = count_bit_dif(t);
 	printf("%d", count);
