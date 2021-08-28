@@ -1,4 +1,4 @@
-int my_strlen1(char* arr)
+/*int my_strlen1(char* arr)
 {
 	int count=0;
 	while(*arr!='\0')
@@ -14,6 +14,22 @@ int my_strlen2(char* arr) //不创建临时变量
 	if(*arr!='\0')
 		return 1+my_strlen2(arr+1);
 }
+*/
+
+int my_strlen(const char* str)
+{
+	assert(str != NULL);
+	int count = 0;
+	while(*str != '\0')
+	{
+		str++;
+		count++;
+	}
+	return count;
+}
+
+
+/*
 void my_strcopy(char* des, char* src)
 {
 	while (*src!='\0')
@@ -25,14 +41,43 @@ void my_strcopy(char* des, char* src)
 	*des = *src;
 }
 
+void my_strcopy(char* des, char* src)
+{
+	while (*des++ = *src++)
+	{
+		;
+	}
+}
+
+void my_strcopy(char* des, char* src)
+{
+	assert(des!=NULL);
+	assert(src!=NULL);
+	while (*des++ = *src++)
+	{
+		;
+	}
+}
+*/
+
+char my_strcopy(char* des, const char* src)
+{
+	char* ret = des;
+	assert(des!=NULL);
+	assert(src!=NULL);
+	while (*des++ = *src++)
+	{
+		;
+	}
+	return ret;
+}
+
 int main()
 {
-	char arr[]={"example"};
-	printf("%d\n",my_strlen1(arr));
-	printf("%d\n",my_strlen2(arr));
-	char arr1[] = "#############";
-	char arr2[] = "Jayce";
-	my_strcopy(arr1, arr2);
-	printf("%s", arr1);
+	char arr1[]={"example"};
+	printf("%d\n",my_strlen(arr));
+	char arr2[] = "#############";
+	char arr3[] = "Jayce";
+	printf("%s", my_strcopy(arr2, arr3);
 	return 0;
 }
